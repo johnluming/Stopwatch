@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="56sp" />
+        android:textSize="56sp"
+        android:textColor="@color/colorAccent"/>
 
     <Button
         android:id="@+id/start_button"
