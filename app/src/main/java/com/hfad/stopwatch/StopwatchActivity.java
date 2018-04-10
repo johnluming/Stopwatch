@@ -16,8 +16,8 @@ import java.util.Locale;
 public class StopwatchActivity extends Activity {
 
     private int seconds = 0;
-    private boolean running;
-    private boolean wasRunningBeforeStop;
+    private boolean running = false;
+    private boolean wasRunningBeforeStopped = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +37,15 @@ public class StopwatchActivity extends Activity {
     protected void onRestart() {
         Log.i("tag", "onRestart() called");
         super.onRestart();
-        if (wasRunningBeforeStop) {
-            running = true;
-        }
     }
 
     @Override
     protected void onStart() {
         Log.i("tag", "onStart() called");
         super.onStart();
+        if (wasRunningBeforeStopped) {
+            running = true;
+        }
     }
 
     @Override
@@ -71,7 +71,7 @@ public class StopwatchActivity extends Activity {
     protected void onStop() {
         Log.i("tag", "onStop() called");
         super.onStop();
-        wasRunningBeforeStop = running;
+        wasRunningBeforeStopped = running;
         running = false;
     }
 
